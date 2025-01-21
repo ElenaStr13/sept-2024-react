@@ -1,10 +1,10 @@
 import {Outlet} from "react-router-dom";
+import {MenuComponent} from "../components/menu/Menucomponent.tsx";
 
 const MainLayout = () => {
     return (
         <div>
-            {/*<Menu/>*/}
-            {/*<hr/>*/}
+           <MenuComponent/>
             <Outlet/>
         </div>
     );
