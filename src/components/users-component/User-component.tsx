@@ -14,7 +14,7 @@ export const UserComponent: FC<Props> = ({user}) => {
 
     return (
         <div className={'my-10'}>
-            {user.username}: {user.email}
+            {user.id} {user.username}: {user.email}
             <button onClick={() => {onButtonClickNavigate()}} className={'border-2'}>Click me</button>
         </div>
     );

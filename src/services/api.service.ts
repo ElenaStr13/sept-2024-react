@@ -1,10 +1,15 @@
 import {IUserResponseModel} from "../models/IUserResponseModel.ts";
 import {ICartResponseModel} from "../models/ICartResponseModel.ts";
 
-const baseUrl = 'http://dummyjson.com';
+export const baseUrl = 'http://dummyjson.com';
 export const userService = {
-    getAllUsers: async ():Promise<IUserResponseModel> => {
-        return await fetch(`${baseUrl}/users`)
+    getAllUsers: async (page:string):Promise<IUserResponseModel> => {
+        let skip = 0;
+        const limit = 30;
+        if (+page > 0) {
+            skip = limit*(+page) - limit;
+        }
+        return await fetch(`${baseUrl}/users?skip=${skip}`)
             .then(value=> value.json())
     }
 };

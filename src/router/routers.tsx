@@ -3,13 +3,17 @@ import MainLayout from "../layouts/MainLayout.tsx";
 import UsersPage from "../pages/UsersPage.tsx";
 import PostsPage from "../pages/PostsPage.tsx";
 import CartsPage from "../pages/CartsPage.tsx";
+import PaginationLayout from "../layouts/PaginationLayout.tsx";
 export const routes = createBrowserRouter([
     {
         path: '/', element: <MainLayout/>, children: [
-
-            {path: 'users', element: <UsersPage/>},
-            {path: 'users/:id/carts', element: <CartsPage/>}
-            // {path: 'posts', element: <PostsPage/>}
+            {
+                path: '', element: <PaginationLayout/>, children: [
+                    {path: 'users', element: <UsersPage/>},
+                    {path: 'users/:id/carts', element: <CartsPage/>},
+                    {path: 'posts', element: <PostsPage/>}
+                ]
+            },
         ]
     }
 ]);
